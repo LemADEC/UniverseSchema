@@ -1,0 +1,218 @@
+Id,Name
+0, Ocean
+1, Plains
+2, Desert
+3, Extreme Hills
+4, Forest
+5, Taiga
+6, Swampland
+7, River
+8, Hell
+9, Sky
+10, FrozenOcean
+11, FrozenRiver
+12, Ice Plains
+13, Ice Mountains
+14, MushroomIsland
+15, MushroomIslandShore
+16, Beach
+17, DesertHills
+18, ForestHills
+19, TaigaHills
+20, Extreme Hills Edge
+21, Jungle
+22, JungleHills
+23, JungleEdge
+24, Deep Ocean
+25, Stone Beach
+26, Cold Beach
+27, Birch Forest
+28, Birch Forest Hills
+29, Roofed Forest
+30, Cold Taiga
+31, Cold Taiga Hills
+32, Mega Taiga
+33, Mega Taiga Hills
+34, Extreme Hills+
+35, Savanna
+36, Savanna Plateau
+37, Mesa
+38, Mesa Plateau F
+39, Mesa Plateau
+40, Alps
+41, Arctic
+42, Bamboo Forest
+43, Bayou
+44, Bog
+45, Boreal Forest
+46, Brushland
+47, Canyon
+48, Chaparral
+49, Cherry Blossom Grove
+50, Coniferous Forest
+51, Snowy Coniferous Forest
+52, Crag
+53, Dead Forest
+54, Dead Swamp
+55, Deciduous Forest
+56, Dense Forest
+57, Eucalyptus Forest
+58, Fen
+59, Flower Field
+60, Frost Forest
+61, Fungi Forest
+62, Garden
+63, Grassland
+64, Grove
+65, Heathland
+66, Highland
+67, Jade Cliffs
+68, Land of Lakes
+69, Lavender Fields
+70, Lush Desert
+71, Lush Swamp
+72, Maple Woods
+73, Marsh
+74, Meadow
+75, Moor
+76, Mountain
+77, Mystic Grove
+78, Ominous Woods
+79, Orchard
+80, Origin Valley
+81, Outback
+82, Prairie
+83, Rainforest
+84, Redwood Forest
+85, Sacred Springs
+86, Seasonal Forest
+87, Shield
+88, Shrubland
+89, Sludgepit
+90, Steppe
+91, Temperate Rainforest
+92, Thicket
+93, Tropical Rainforest
+94, Tundra
+95, Space
+96, Wetland
+97, Woodland
+98, Xeric Shrubland
+99, Coral Reef
+100, Kelp Forest
+101, Tropics
+102, Volcano
+103, Mangrove
+104, Alps Forest
+105, Canyon Ravine
+106, Glacier
+107, Land of Lakes Marsh
+108, Meadow Forest
+109, Oasis
+110, Quagmire
+111, Scrubland
+112, Seasonal Forest Clearing
+113, Silkglades
+114, Spruce Woods
+115, Corrupted Sands
+116, Phantasmagoric Inferno
+117, Boneyard
+118, Visceral Heap
+119, Undergarden
+120, Polar Chasm
+121, Spectral Garden
+122, Lush River
+123, Dry River
+124, Alpine
+125, Autumn Woods
+126, Ocean Oil Field
+127, Desert Oil Field
+128, Birch Forest
+129, Sunflower Plains
+130, Desert M
+131, Extreme Hills M
+132, Flower Forest
+133, Taiga M
+134, Swampland M
+135, Extreme Jungle
+136, Forested Hills
+137, Forested Island
+138, Glacier
+139, Green Hills
+140, Ice Plains Spikes
+141, Green Swamplands
+142, Ice Wasteland
+143, Meadow
+144, Mini Jungle
+145, Mountainous Desert
+146, Red Rock Mountains
+147, Mountain Taiga
+148, Pine Forest
+149, Jungle M
+150, Rainforest
+151, JungleEdge M
+152, Redwood Forest
+153, Lush Redwoods
+154, Savanna
+155, Birch Forest M
+156, Birch Forest Hills M
+157, Roofed Forest M
+158, Cold Taiga M
+159, Shrubland
+160, Mega Spruce Taiga
+160, Mega Spruce Taiga
+162, Extreme Hills+ M
+163, Savanna M
+164, Savanna Plateau M
+165, Mesa (Bryce)
+166, Mesa Plateau F M
+167, Mesa Plateau M
+168, Snow Forest
+169, Snowy Rainforest
+170, Temperate Rainforest
+171, Tundra
+172, Wasteland
+173, Woodlands
+200, Alps
+201, Autumn Forest
+202, Badlands
+203, Birch Hills
+204, Bog
+205, Cliffs
+206, Desert Mountains
+207, Dunes
+208, Estuary
+209, Flying Mountains
+210, Glacier
+211, Highlands
+212, Lowlands
+213, Meadow
+214, Outback
+215, Pinelands
+216, Rainforest
+217, Redwood Forest
+218, Rock Mountains
+219, Sahel
+220, Savannah
+221, Steppe
+222, Snow Mountains
+223, Tall Pine Forest
+224, Tropics
+225, Tropical Islands
+226, Tundra
+227, Woodlands
+228, Woodland Mountains
+230, Desert Island
+231, Forest Island
+232, Jungle Island
+233, Volcano Island
+234, Snow Island
+235, Rock Island
+236, Windy Island
+237, Lake
+238, Bald Hill
+239, Mesa
+240, Valley
+241, Oasis
+242, Canyon
+243, Shrubland
