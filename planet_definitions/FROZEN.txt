@@ -1,5 +1,4 @@
-minSizeX: 1000
-maxSizeX: 2000
+size: 1000
 hasAtmosphereChance: 75
 hasDimension: TRUE
 biomeCategory: FROZEN

@@ -1,5 +1,4 @@
-minSizeX: 4000
-maxSizeX: 7000
+size: 4000
 hasAtmosphereChance: 0
 hasDimension: FALSE
 biomeCategory: NONE
