@@ -1,0 +1,6 @@
+sizeX: 2000
+sizeZ: 2000
+posX: 65000
+posZ: 65000
+render: RED_GAS_GIANT
+hasDimension: false
