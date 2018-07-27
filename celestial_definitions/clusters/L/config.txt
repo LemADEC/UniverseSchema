@@ -1,0 +1,4 @@
+sizeX: 30000000
+sizeZ: 30000000
+posX: 0
+posZ: 0
