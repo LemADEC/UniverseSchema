@@ -1,0 +1,7 @@
+<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />

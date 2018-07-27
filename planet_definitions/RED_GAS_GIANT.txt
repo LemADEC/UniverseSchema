@@ -1,0 +1,11 @@
+minSizeX: 4000
+maxSizeX: 7000
+hasAtmosphereChance: 0
+hasDimension: FALSE
+biomeCategory: NONE
+render: RED_GAS_GIANT
+minBiomes: 0
+maxBiomes: 0
+weighting: 5
+planetZone: UNINHABITABLE_TOOFAR
+
