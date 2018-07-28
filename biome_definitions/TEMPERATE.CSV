@@ -7,8 +7,8 @@ Id,Name
 5, Taiga
 6, Swampland
 7, River
-14, MushroomIsland
-15, MushroomIslandShore
+237, Lake
+240, Valley
 16, Beach
 18, ForestHills
 19, TaigaHills
@@ -100,5 +100,3 @@ Id,Name
 227, Woodlands
 228, Woodland Mountains
 231, Forest Island
-237, Lake
-240, Valley
