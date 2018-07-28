@@ -89,25 +89,25 @@ Function Render-SystemStart($name, $x, $z, $size) {
     $data = $data.replace("{DIMENSIONID}", $global:CONST_DIMENSIONID_CURRENT++)
     $data = $data.replace("^\uFEFF","")
     
-    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\celestialObjects-default.xml")
 }
 
 Function Render-SystemEnd($system) {
     $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\SYSTEM_END.txt")
     $data = $data.replace("^\uFEFF","")
-    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\celestialObjects-default.xml")
 }
 
 Function Render-HyperspaceStart() {
     $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\HYPERSPACE_START.txt")
     $data = $data.replace("^\uFEFF","")
-    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\celestialObjects-default.xml")
 }
 
 Function Render-HyperspaceEnd() {
     $data = Get-Content -Path ($CONFIG_DIR + "\config_definitions\HYPERSPACE_END.txt")
     $data = $data.replace("^\uFEFF","")
-    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\celestialObjects-default.xml")
 }
 
 Function Render-Star($star) {
@@ -121,7 +121,7 @@ Function Render-Star($star) {
     $data = $data.replace("{SIZEZ}", $star.size)
     $data = $data.replace("{RENDERDATA}", ($render_data))
     $data = $data.replace("^\uFEFF","")
-    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\celestialObjects-default.xml")
 }
 
 Function Render-Planet($planet) {
@@ -129,10 +129,10 @@ Function Render-Planet($planet) {
     $render_data = [IO.File]::ReadAllText($CONFIG_DIR + "\render_definitions\" + $planet.render + ".txt")
     $render_data = $render_data.replace("`n", "`n				")
     $data = $data.replace("{ID}", (Get-Random -Minimum 0 -Maximum 100000))
-    $data = $data.replace("{POSX}", $star.posX)
-    $data = $data.replace("{POSZ}", $star.posZ)
-    $data = $data.replace("{SIZEX}", $star.size)
-    $data = $data.replace("{SIZEZ}", $star.size)
+    $data = $data.replace("{POSX}", $planet.posX)
+    $data = $data.replace("{POSZ}", $planet.posZ)
+    $data = $data.replace("{SIZEX}", $planet.size)
+    $data = $data.replace("{SIZEZ}", $planet.size)
     if ($planet.hasDimension -eq "TRUE") {
         $dimData = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\PLANET_DIMDATA.txt")
         $dimData = $dimData.replace("{DIMENSIONID}", $global:CONST_DIMENSIONID_CURRENT)
@@ -151,7 +151,7 @@ Function Render-Planet($planet) {
     }
     $data = $data.replace("{RENDERDATA}", ($render_data))
     $data = $data.replace("^\uFEFF","")
-    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\celestialObjects-default.xml")
 }
 
 

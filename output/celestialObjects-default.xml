@@ -70,17 +70,17 @@
 			<fogColor red="0.15" green="0.0" blue="0.0" />
 			<fogFactor red="0.0" green="0.0" blue="0.0" />
 		</skybox>
-		<celestialObject id="49870">
+		<celestialObject id="99662">
 			<!--
 			  parent defines the relation with a bigger enveloping celestial object.
 			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
 			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
 			  -->
 			<parent>
-				<center x="-3950000" z="2700000" />
+				<center x="-16150000" z="-18700000" />
 			</parent>
 			<size x="100000" z="100000" />
-			<name>49870</name>
+			<name>99662</name>
 			<description></description>
 			<dimension id="-10000" isBreathable="false" gravity="legacySpace">
 				<center x="0" z="0" />
@@ -103,10 +103,10 @@
 				<fogFactor red="0.0" green="0.0" blue="0.0" />
 			</skybox>
 			
-			<celestialObject id="15190">
+			<celestialObject id="84027">
 				<parent>
 					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
+					<center x="5000" z="-30000" />
 				</parent>
 				<size x="6000" z="6000" />
 				<!--
@@ -131,10 +131,10 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="26399">
+			<celestialObject id="20261">
 				<parent>
 					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
+					<center x="5000" z="-30000" />
 				</parent>
 				<size x="6000" z="6000" />
 				<!--
@@ -159,11 +159,11 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="92543">
+			<celestialObject id="42560">
 				<parent>
-					<center x="5000" z="-10000" />
+					<center x="-45000" z="-100000" />
 				</parent>
-				<size x="6000" z="6000" />
+				<size x="1000" z="1000" />
 								<dimension id="-9999" isBreathable="true" gravity="1.0">
 					<center x="0" z="0" />
 				</dimension>
@@ -175,44 +175,158 @@
 				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
 				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
 			</celestialObject>
-			<celestialObject id="12817">
+		</celestialObject>
+		<celestialObject id="51799">
+			<!--
+			  parent defines the relation with a bigger enveloping celestial object.
+			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
+			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
+			  -->
+			<parent>
+				<center x="-21750000" z="-20800000" />
+			</parent>
+			<size x="100000" z="100000" />
+			<name>51799</name>
+			<description></description>
+			<dimension id="-9998" isBreathable="false" gravity="legacySpace">
+				<center x="0" z="0" />
+				<provider type="WarpDriveSpace" />
+				<!--
+					generate defines the chance of different structures to generate
+					generate.group, generate.name: identify the structure from the related XML files (name is optional)
+				  -->
+				<generate group="moon" ratio="0.00125" />
+				<generate group="asteroid" ratio="0.0067" />
+				<generate group="asteroids_field" ratio="0.0016" />
+			</dimension>
+			
+			<skybox>
+				<backgroundColor red="0.0" green="0.0" blue="0.0" />
+				<starBrightnessBase>0.9</starBrightnessBase>
+				<starBrightnessVanilla>0.0</starBrightnessVanilla>
+				<celestialObjectOpacity>1.0</celestialObjectOpacity>
+				<fogColor red="0.0" green="0.0" blue="0.0" />
+				<fogFactor red="0.0" green="0.0" blue="0.0" />
+			</skybox>
+			
+			<celestialObject id="47813">
 				<parent>
-					<center x="5000" z="-10000" />
+					<!-- sun is at the center of the solarSystem -->
+					<center x="5000" z="-30000" />
 				</parent>
 				<size x="6000" z="6000" />
-								<dimension id="-9998" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
+				<!--
+				  render defines several layers from surface to high atmosphere representing the planet.
+				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
+				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
+				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
+				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
+				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
+				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
+				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
+				  additive: optional blending function, defaults to false (multiplicative)
+				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
+				  
+				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
+				  -->
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="79231">
+			<celestialObject id="47590">
 				<parent>
-					<center x="5000" z="-10000" />
+					<!-- sun is at the center of the solarSystem -->
+					<center x="5000" z="-30000" />
 				</parent>
 				<size x="6000" z="6000" />
+				<!--
+				  render defines several layers from surface to high atmosphere representing the planet.
+				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
+				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
+				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
+				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
+				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
+				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
+				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
+				  additive: optional blending function, defaults to false (multiplicative)
+				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
+				  
+				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
+				  -->
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+			<celestialObject id="58304">
+				<parent>
+					<!-- sun is at the center of the solarSystem -->
+					<center x="5000" z="-30000" />
+				</parent>
+				<size x="6000" z="6000" />
+				<!--
+				  render defines several layers from surface to high atmosphere representing the planet.
+				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
+				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
+				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
+				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
+				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
+				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
+				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
+				  additive: optional blending function, defaults to false (multiplicative)
+				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
+				  
+				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
+				  -->
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+			<celestialObject id="20763">
+				<parent>
+					<!-- sun is at the center of the solarSystem -->
+					<center x="5000" z="-30000" />
+				</parent>
+				<size x="6000" z="6000" />
+				<!--
+				  render defines several layers from surface to high atmosphere representing the planet.
+				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
+				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
+				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
+				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
+				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
+				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
+				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
+				  additive: optional blending function, defaults to false (multiplicative)
+				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
+				  
+				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
+				  -->
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+			<celestialObject id="54167">
+				<parent>
+					<center x="-90000" z="-60000" />
+				</parent>
+				<size x="1500" z="1500" />
 								<dimension id="-9997" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="98941">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9996" isBreathable="true" gravity="1.0">
 					<center x="0" z="0" />
 				</dimension>
 				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
@@ -223,34 +337,184 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="78900">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9995" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
 		</celestialObject>
-		<celestialObject id="68228">
+		<celestialObject id="96945">
 			<!--
 			  parent defines the relation with a bigger enveloping celestial object.
 			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
 			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
 			  -->
 			<parent>
-				<center x="-5350000" z="-100000" />
+				<center x="-23150000" z="-15900000" />
 			</parent>
 			<size x="100000" z="100000" />
-			<name>68228</name>
+			<name>96945</name>
+			<description></description>
+			<dimension id="-9996" isBreathable="false" gravity="legacySpace">
+				<center x="0" z="0" />
+				<provider type="WarpDriveSpace" />
+				<!--
+					generate defines the chance of different structures to generate
+					generate.group, generate.name: identify the structure from the related XML files (name is optional)
+				  -->
+				<generate group="moon" ratio="0.00125" />
+				<generate group="asteroid" ratio="0.0067" />
+				<generate group="asteroids_field" ratio="0.0016" />
+			</dimension>
+			
+			<skybox>
+				<backgroundColor red="0.0" green="0.0" blue="0.0" />
+				<starBrightnessBase>0.9</starBrightnessBase>
+				<starBrightnessVanilla>0.0</starBrightnessVanilla>
+				<celestialObjectOpacity>1.0</celestialObjectOpacity>
+				<fogColor red="0.0" green="0.0" blue="0.0" />
+				<fogFactor red="0.0" green="0.0" blue="0.0" />
+			</skybox>
+			
+			<celestialObject id="19802">
+				<parent>
+					<center x="-75000" z="20000" />
+				</parent>
+				<size x="3750" z="3750" />
+				
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+			<celestialObject id="95529">
+				<parent>
+					<center x="0" z="-40000" />
+				</parent>
+				<size x="3750" z="3750" />
+				
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+			<celestialObject id="5733">
+				<parent>
+					<center x="-75000" z="65000" />
+				</parent>
+				<size x="2500" z="2500" />
+				
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+		</celestialObject>
+		<celestialObject id="54637">
+			<!--
+			  parent defines the relation with a bigger enveloping celestial object.
+			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
+			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
+			  -->
+			<parent>
+				<center x="10350000" z="-10900000" />
+			</parent>
+			<size x="100000" z="100000" />
+			<name>54637</name>
+			<description></description>
+			<dimension id="-9995" isBreathable="false" gravity="legacySpace">
+				<center x="0" z="0" />
+				<provider type="WarpDriveSpace" />
+				<!--
+					generate defines the chance of different structures to generate
+					generate.group, generate.name: identify the structure from the related XML files (name is optional)
+				  -->
+				<generate group="moon" ratio="0.00125" />
+				<generate group="asteroid" ratio="0.0067" />
+				<generate group="asteroids_field" ratio="0.0016" />
+			</dimension>
+			
+			<skybox>
+				<backgroundColor red="0.0" green="0.0" blue="0.0" />
+				<starBrightnessBase>0.9</starBrightnessBase>
+				<starBrightnessVanilla>0.0</starBrightnessVanilla>
+				<celestialObjectOpacity>1.0</celestialObjectOpacity>
+				<fogColor red="0.0" green="0.0" blue="0.0" />
+				<fogFactor red="0.0" green="0.0" blue="0.0" />
+			</skybox>
+			
+			<celestialObject id="53743">
+				<parent>
+					<!-- sun is at the center of the solarSystem -->
+					<center x="5000" z="-10000" />
+				</parent>
+				<size x="6000" z="6000" />
+				<!--
+				  render defines several layers from surface to high atmosphere representing the planet.
+				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
+				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
+				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
+				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
+				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
+				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
+				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
+				  additive: optional blending function, defaults to false (multiplicative)
+				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
+				  
+				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
+				  -->
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+			<celestialObject id="8246">
+				<parent>
+					<!-- sun is at the center of the solarSystem -->
+					<center x="5000" z="-10000" />
+				</parent>
+				<size x="6000" z="6000" />
+				<!--
+				  render defines several layers from surface to high atmosphere representing the planet.
+				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
+				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
+				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
+				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
+				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
+				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
+				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
+				  additive: optional blending function, defaults to false (multiplicative)
+				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
+				  
+				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
+				  -->
+				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
+				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
+				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
+				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
+				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
+				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+			</celestialObject>
+		</celestialObject>
+		<celestialObject id="44353">
+			<!--
+			  parent defines the relation with a bigger enveloping celestial object.
+			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
+			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
+			  -->
+			<parent>
+				<center x="6150000" z="-15800000" />
+			</parent>
+			<size x="100000" z="100000" />
+			<name>44353</name>
 			<description></description>
 			<dimension id="-9994" isBreathable="false" gravity="legacySpace">
 				<center x="0" z="0" />
@@ -273,10 +537,10 @@
 				<fogFactor red="0.0" green="0.0" blue="0.0" />
 			</skybox>
 			
-			<celestialObject id="29440">
+			<celestialObject id="14457">
 				<parent>
 					<!-- sun is at the center of the solarSystem -->
-					<center x="-15000" z="-15000" />
+					<center x="5000" z="-10000" />
 				</parent>
 				<size x="6000" z="6000" />
 				<!--
@@ -301,10 +565,10 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="67351">
+			<celestialObject id="59703">
 				<parent>
 					<!-- sun is at the center of the solarSystem -->
-					<center x="-15000" z="-15000" />
+					<center x="5000" z="-10000" />
 				</parent>
 				<size x="6000" z="6000" />
 				<!--
@@ -329,10 +593,10 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="97968">
+			<celestialObject id="31683">
 				<parent>
 					<!-- sun is at the center of the solarSystem -->
-					<center x="-15000" z="-15000" />
+					<center x="5000" z="-10000" />
 				</parent>
 				<size x="6000" z="6000" />
 				<!--
@@ -357,73 +621,27 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="58732">
+			<celestialObject id="15360">
 				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="-15000" z="-15000" />
+					<center x="60000" z="-85000" />
 				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+				<size x="1000" z="1000" />
+								<dimension id="-9993" isBreathable="true" gravity="1.0">
+					<center x="0" z="0" />
+				</dimension>
+				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
+				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
+				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
+				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
+				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
+				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
+				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
 			</celestialObject>
-		</celestialObject>
-		<celestialObject id="67765">
-			<!--
-			  parent defines the relation with a bigger enveloping celestial object.
-			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
-			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
-			  -->
-			<parent>
-				<center x="-3250000" z="-800000" />
-			</parent>
-			<size x="100000" z="100000" />
-			<name>67765</name>
-			<description></description>
-			<dimension id="-9993" isBreathable="false" gravity="legacySpace">
-				<center x="0" z="0" />
-				<provider type="WarpDriveSpace" />
-				<!--
-					generate defines the chance of different structures to generate
-					generate.group, generate.name: identify the structure from the related XML files (name is optional)
-				  -->
-				<generate group="moon" ratio="0.00125" />
-				<generate group="asteroid" ratio="0.0067" />
-				<generate group="asteroids_field" ratio="0.0016" />
-			</dimension>
-			
-			<skybox>
-				<backgroundColor red="0.0" green="0.0" blue="0.0" />
-				<starBrightnessBase>0.9</starBrightnessBase>
-				<starBrightnessVanilla>0.0</starBrightnessVanilla>
-				<celestialObjectOpacity>1.0</celestialObjectOpacity>
-				<fogColor red="0.0" green="0.0" blue="0.0" />
-				<fogFactor red="0.0" green="0.0" blue="0.0" />
-			</skybox>
-			
-			<celestialObject id="92914">
+			<celestialObject id="887">
 				<parent>
-					<center x="-15000" z="-15000" />
+					<center x="-90000" z="75000" />
 				</parent>
-				<size x="6000" z="6000" />
+				<size x="2500" z="2500" />
 				
 				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
 				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
@@ -433,157 +651,27 @@
 				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
 				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
 			</celestialObject>
-			<celestialObject id="96756">
+			<celestialObject id="11995">
 				<parent>
-					<center x="-15000" z="-15000" />
+					<center x="-30000" z="-70000" />
 				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
+				<size x="1000" z="1000" />
+								<dimension id="-9992" isBreathable="false" gravity="1.0">
+					<center x="0" z="0" />
+				</dimension>
+				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
+				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
+				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
+				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
+				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
+				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
+				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
 			</celestialObject>
-			<celestialObject id="3428">
+			<celestialObject id="86090">
 				<parent>
-					<center x="-15000" z="-15000" />
+					<center x="45000" z="-10000" />
 				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="38130">
-				<parent>
-					<center x="-15000" z="-15000" />
-				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="12046">
-				<parent>
-					<center x="-15000" z="-15000" />
-				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-		</celestialObject>
-		<celestialObject id="31252">
-			<!--
-			  parent defines the relation with a bigger enveloping celestial object.
-			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
-			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
-			  -->
-			<parent>
-				<center x="13850000" z="-13700000" />
-			</parent>
-			<size x="100000" z="100000" />
-			<name>31252</name>
-			<description></description>
-			<dimension id="-9992" isBreathable="false" gravity="legacySpace">
-				<center x="0" z="0" />
-				<provider type="WarpDriveSpace" />
-				<!--
-					generate defines the chance of different structures to generate
-					generate.group, generate.name: identify the structure from the related XML files (name is optional)
-				  -->
-				<generate group="moon" ratio="0.00125" />
-				<generate group="asteroid" ratio="0.0067" />
-				<generate group="asteroids_field" ratio="0.0016" />
-			</dimension>
-			
-			<skybox>
-				<backgroundColor red="0.0" green="0.0" blue="0.0" />
-				<starBrightnessBase>0.9</starBrightnessBase>
-				<starBrightnessVanilla>0.0</starBrightnessVanilla>
-				<celestialObjectOpacity>1.0</celestialObjectOpacity>
-				<fogColor red="0.0" green="0.0" blue="0.0" />
-				<fogFactor red="0.0" green="0.0" blue="0.0" />
-			</skybox>
-			
-			<celestialObject id="89274">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="-15000" z="-15000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="22972">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="-15000" z="-15000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="50974">
-				<parent>
-					<center x="-15000" z="-15000" />
-				</parent>
-				<size x="6000" z="6000" />
+				<size x="2000" z="2000" />
 								<dimension id="-9991" isBreathable="true" gravity="1.0">
 					<center x="0" z="0" />
 				</dimension>
@@ -595,472 +683,12 @@
 				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
 				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
 			</celestialObject>
-			<celestialObject id="30964">
+			<celestialObject id="86965">
 				<parent>
-					<center x="-15000" z="-15000" />
+					<center x="30000" z="65000" />
 				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9990" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="91513">
-				<parent>
-					<center x="-15000" z="-15000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9989" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-		</celestialObject>
-		<celestialObject id="13805">
-			<!--
-			  parent defines the relation with a bigger enveloping celestial object.
-			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
-			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
-			  -->
-			<parent>
-				<center x="12450000" z="-11600000" />
-			</parent>
-			<size x="100000" z="100000" />
-			<name>13805</name>
-			<description></description>
-			<dimension id="-9988" isBreathable="false" gravity="legacySpace">
-				<center x="0" z="0" />
-				<provider type="WarpDriveSpace" />
-				<!--
-					generate defines the chance of different structures to generate
-					generate.group, generate.name: identify the structure from the related XML files (name is optional)
-				  -->
-				<generate group="moon" ratio="0.00125" />
-				<generate group="asteroid" ratio="0.0067" />
-				<generate group="asteroids_field" ratio="0.0016" />
-			</dimension>
-			
-			<skybox>
-				<backgroundColor red="0.0" green="0.0" blue="0.0" />
-				<starBrightnessBase>0.9</starBrightnessBase>
-				<starBrightnessVanilla>0.0</starBrightnessVanilla>
-				<celestialObjectOpacity>1.0</celestialObjectOpacity>
-				<fogColor red="0.0" green="0.0" blue="0.0" />
-				<fogFactor red="0.0" green="0.0" blue="0.0" />
-			</skybox>
-			
-			<celestialObject id="70444">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="33070">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="4468">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="55952">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9987" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="97078">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9986" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="31064">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9985" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-		</celestialObject>
-		<celestialObject id="5766">
-			<!--
-			  parent defines the relation with a bigger enveloping celestial object.
-			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
-			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
-			  -->
-			<parent>
-				<center x="13150000" z="-20000000" />
-			</parent>
-			<size x="100000" z="100000" />
-			<name>5766</name>
-			<description></description>
-			<dimension id="-9984" isBreathable="false" gravity="legacySpace">
-				<center x="0" z="0" />
-				<provider type="WarpDriveSpace" />
-				<!--
-					generate defines the chance of different structures to generate
-					generate.group, generate.name: identify the structure from the related XML files (name is optional)
-				  -->
-				<generate group="moon" ratio="0.00125" />
-				<generate group="asteroid" ratio="0.0067" />
-				<generate group="asteroids_field" ratio="0.0016" />
-			</dimension>
-			
-			<skybox>
-				<backgroundColor red="0.0" green="0.0" blue="0.0" />
-				<starBrightnessBase>0.9</starBrightnessBase>
-				<starBrightnessVanilla>0.0</starBrightnessVanilla>
-				<celestialObjectOpacity>1.0</celestialObjectOpacity>
-				<fogColor red="0.0" green="0.0" blue="0.0" />
-				<fogFactor red="0.0" green="0.0" blue="0.0" />
-			</skybox>
-			
-		</celestialObject>
-		<celestialObject id="83313">
-			<!--
-			  parent defines the relation with a bigger enveloping celestial object.
-			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
-			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
-			  -->
-			<parent>
-				<center x="11750000" z="-13000000" />
-			</parent>
-			<size x="100000" z="100000" />
-			<name>83313</name>
-			<description></description>
-			<dimension id="-9983" isBreathable="false" gravity="legacySpace">
-				<center x="0" z="0" />
-				<provider type="WarpDriveSpace" />
-				<!--
-					generate defines the chance of different structures to generate
-					generate.group, generate.name: identify the structure from the related XML files (name is optional)
-				  -->
-				<generate group="moon" ratio="0.00125" />
-				<generate group="asteroid" ratio="0.0067" />
-				<generate group="asteroids_field" ratio="0.0016" />
-			</dimension>
-			
-			<skybox>
-				<backgroundColor red="0.0" green="0.0" blue="0.0" />
-				<starBrightnessBase>0.9</starBrightnessBase>
-				<starBrightnessVanilla>0.0</starBrightnessVanilla>
-				<celestialObjectOpacity>1.0</celestialObjectOpacity>
-				<fogColor red="0.0" green="0.0" blue="0.0" />
-				<fogFactor red="0.0" green="0.0" blue="0.0" />
-			</skybox>
-			
-			<celestialObject id="97721">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="74537">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="26379">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-		</celestialObject>
-		<celestialObject id="54792">
-			<!--
-			  parent defines the relation with a bigger enveloping celestial object.
-			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
-			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
-			  -->
-			<parent>
-				<center x="9650000" z="-18600000" />
-			</parent>
-			<size x="100000" z="100000" />
-			<name>54792</name>
-			<description></description>
-			<dimension id="-9982" isBreathable="false" gravity="legacySpace">
-				<center x="0" z="0" />
-				<provider type="WarpDriveSpace" />
-				<!--
-					generate defines the chance of different structures to generate
-					generate.group, generate.name: identify the structure from the related XML files (name is optional)
-				  -->
-				<generate group="moon" ratio="0.00125" />
-				<generate group="asteroid" ratio="0.0067" />
-				<generate group="asteroids_field" ratio="0.0016" />
-			</dimension>
-			
-			<skybox>
-				<backgroundColor red="0.0" green="0.0" blue="0.0" />
-				<starBrightnessBase>0.9</starBrightnessBase>
-				<starBrightnessVanilla>0.0</starBrightnessVanilla>
-				<celestialObjectOpacity>1.0</celestialObjectOpacity>
-				<fogColor red="0.0" green="0.0" blue="0.0" />
-				<fogFactor red="0.0" green="0.0" blue="0.0" />
-			</skybox>
-			
-			<celestialObject id="97031">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="24559">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="9352">
-				<parent>
-					<!-- sun is at the center of the solarSystem -->
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-				<!--
-				  render defines several layers from surface to high atmosphere representing the planet.
-				  red, green, blue: color mixing from 0.00 (black) to 1.00 (white)
-				  alpha: transparency factor from 0.00 (invisible) to 1.00 (opaque)
-				  texture: optional texture to use, can come from resource pack, vanilla or the mod itself
-				  periodU, periodV: optional texture rotation period over the planet, measured in seconds, defaults to 0 (disabled)
-				  		Texture coordinates are defined along U and V axis (you can see them as X and Y axis in the context of the texture pixels).
-				  		A periodU of 40 means the texture will do progressively shift along U axis, doing a full rotation in 40 seconds.
-				  		A periodU of -80 means the texture will shift twice slower in the opposite direction. 
-				  additive: optional blending function, defaults to false (multiplicative)
-				  		Blending is the mathematical operation to mix existing pixel (previous layer or sky background) with the new one.
-				  
-				  In most cases, you want the first layer to be alpha="1.00", or the players will see the sky through the planet.
-				  -->
-				<render red="0.80" green="0.50" blue="0.20" alpha="1.00" texture="" />
-				<render red="0.80" green="0.70" blue="0.30" alpha="0.40" texture="warpdrive:textures/celestial/surface_icy2.png" periodU="-20" periodV="104" additive="true" />
-				<render red="0.80" green="0.55" blue="0.10" alpha="0.48" texture="warpdrive:textures/celestial/surface_metallic1.png" periodU="-40" periodV="140" additive="true" />
-				<render red="0.80" green="0.45" blue="0.30" alpha="0.34" texture="warpdrive:textures/celestial/surface_magma1.png" periodU="24" periodV="-35" additive="true" />
-				<render red="0.80" green="0.50" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.75" green="0.48" blue="0.20" alpha="0.08" texture="" />
-				<render red="0.70" green="0.55" blue="0.20" alpha="0.08" texture="" />
-			</celestialObject>
-			<celestialObject id="8589">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9981" isBreathable="false" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="71148">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9980" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="62169">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9979" isBreathable="true" gravity="1.0">
-					<center x="0" z="0" />
-				</dimension>
-				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
-				<render red="0.90" green="0.95" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_small1.png" periodU="100" periodV="1100" additive="true" />
-				<render red="0.90" green="0.90" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_medium1.png" periodU="300" periodV="1500" additive="false" />
-				<render red="0.80" green="0.70" blue="1.00" alpha="0.15" texture="warpdrive:textures/celestial/cloud_large1.png" periodU="500" periodV="2100" additive="false" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-				<render red="0.50" green="0.50" blue="1.00" alpha="0.08" />
-			</celestialObject>
-			<celestialObject id="69931">
-				<parent>
-					<center x="5000" z="-10000" />
-				</parent>
-				<size x="6000" z="6000" />
-								<dimension id="-9978" isBreathable="true" gravity="1.0">
+				<size x="2000" z="2000" />
+								<dimension id="-9990" isBreathable="false" gravity="1.0">
 					<center x="0" z="0" />
 				</dimension>
 				<render red="0.70" green="0.70" blue="0.70" alpha="1.00" texture="warpdrive:textures/celestial/surface_temperate2.png" />
