@@ -1,8 +1,10 @@
 ﻿$CONFIG_DIR = "C:\Users\draks\OneDrive\Documents\GitHub\UniverseSchema"
 $global:CONST_DIMENSIONID_CURRENT = -10000;
+$global:NUM_PLANET_DIMENSIONS = 0;
 
 Function Generate-Cluster() {    
     Render-HyperspaceStart
+    Render-MultiWorldStart
     $num_galaxies = Get-Random -Minimum 1 -Maximum 3
     #(((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
     Write-Host ("Galaxies: " + $num_galaxies)
@@ -69,9 +71,36 @@ Function Generate-Cluster() {
             Render-SystemEnd
         }
     }
+    Render-MultiWorldEnd
     Render-HyperspaceEnd
 }
 
+
+Function Render-MultiWorldStart() {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\MULTIWORLD_START.txt")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\MultiWorld.cfg")
+}
+
+Function Get-BiomesForPlanet($planet) {
+    $biomes = import-csv -path ($CONFIG_DIR + "\biome_definitions\" + $planet.biomeCategory  + ".csv")
+    return $biomes.Id -join ","  
+}
+
+Function Render-MultiWorldPlanet($planet, $dimensionId) {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\MULTIWORLD_WORLD.txt")
+    $data = $data.replace("{DIMENSIONID}", $dimensionId);
+    $data = $data.replace("{NAME}", $planet.Name)
+    $data = $data.replace("{CSV_BIOMES}", (Get-BiomesForPlanet -planet $planet))
+    $data = $data.replace("{DIMENSIONIDATZERO}", $global:NUM_PLANET_DIMENSIONS)
+    $global:NUM_PLANET_DIMENSIONS++;
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\MultiWorld.cfg")
+}
+
+Function Render-MultiWorldEnd() {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\MULTIWORLD_END.txt")
+    $data = $data.replace("{NUM_DIMENSIONS}", $global:NUM_PLANET_DIMENSIONS)
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\MultiWorld.cfg")
+}
 Function Render-SystemStart($name, $x, $z, $size) {
     $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\SYSTEM_START.txt")
     $data = $data.replace("{ID}", $name)
@@ -131,6 +160,7 @@ Function Render-Planet($planet) {
     if ($planet.hasDimension -eq "TRUE") {
         $dimData = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\PLANET_DIMDATA.txt")
         $dimData = $dimData.replace("{DIMENSIONID}", $global:CONST_DIMENSIONID_CURRENT)
+        Render-MultiWorldPlanet -planet $planet -dimensionId $global:CONST_DIMENSIONID_CURRENT
         $global:CONST_DIMENSIONID_CURRENT++;
         $dimData = $dimData.replace("{GRAVITY}", "1.0");
         $chance = [int]$planet.hasAtmosphereChance
