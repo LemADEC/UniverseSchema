@@ -39,14 +39,11 @@ Function Generate-Cluster() {
             Write-Host ("Stars: " + $num_stars)
             $star_positions_used = $null; $star_positions_used = @();
             if ($num_stars -ne 0) {
-                foreach ($star in 1..$num_stars) {
+                while ($star_positions_used.Count -lt $num_stars) {
                     $star_position = $null;
-                    while ($star_positions_used -contains $star_position -or $star_position -eq $null) {
-                        $star_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "star_positions")).Count)-1);
-                        $star_position = ((Get-content -Path ($CONFIG_DIR + "\star_positions\" + "star" + $star_posnum + ".txt")));
-                        if ($star_positions_used -notcontains $star_position) { $star_positions_used += $star_position } else { $star_position = $null; }
-                    }
-                    #write-host ("Star Position: " + $star_position)
+                    $star_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "star_positions")).Count)-1);
+                    $star_position = ((Get-content -Path ($CONFIG_DIR + "\star_positions\" + "star" + $star_posnum + ".txt")));
+                    if ($star_positions_used -notcontains $star_position) { $star_positions_used += $star_position }
                 }
             }
             $stars = Get-StarsForSystem -num_stars $num_stars -coords $star_positions_used
@@ -57,15 +54,13 @@ Function Generate-Cluster() {
             Write-Host ("Planets: " + $num_planets)
             $planet_positions_used = @();
             if ($num_planets -ne 0) {
-                foreach ($planet in 1..$num_planets) {
-                    $planet_position = $null;
-                    while ($planet_positions_used -contains $planet_position -or $planet_position -eq $null) {
+                    while ($planet_positions_used.Count -lt $num_planets) {
+                        $planet_position = $null;
                         $planet_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "planet_positions")).Count)-1);
                         $planet_position = ((Get-content -Path ($CONFIG_DIR + "\planet_positions\" + "planet" + $planet_posnum + ".txt")));
-                        if ($planet_positions_used -notcontains $planet_position) { $planet_positions_used += $planet_position } else { $planet_position = $null; }
+                        if ($planet_positions_used -notcontains $planet_position) { $planet_positions_used += $planet_position }
                     }
-                    #write-host ("Planet Position: " + $planet_position)
-                }
+                    #write-host ("Planet Position: " + $planet_position)                
                 $planets = Get-PlanetsForSystem -num_planets $num_planets -planet_coords $planet_positions_used -stars $stars
                 foreach ($planet in $planets) {
                     Render-Planet -planet $planet
@@ -228,6 +223,10 @@ Function Get-StarsForSystem($num_stars, $coords) {
 }
 
 Function Get-ObjectMatches($num_objects, $coords, $type) {
+    Write-Host -ForegroundColor RED ($coords + "," + $num_objects)
+    foreach ($line in $coords) {
+        Write-Host -ForegroundColor YELLOW ($line)
+    }
     if ($num_objects -eq 0) { return; }
     $templates = Get-Templates -type $type
     $to_consider = @()
@@ -246,7 +245,7 @@ Function Get-ObjectMatches($num_objects, $coords, $type) {
         }
     }
     $winners = @();
-    foreach ($s in 0..($num_stars)) {
+    foreach ($s in 1..($num_stars)) {
         $random = Get-Random -Minimum 0 -Maximum (($to_consider_duplicates.Count-1));
         $winners += $to_consider_duplicates[$random]
     }
@@ -254,8 +253,9 @@ Function Get-ObjectMatches($num_objects, $coords, $type) {
     $count = 0;
     foreach ($winner in $winners) {
         $winnerCopy = $winner.PSObject.copy()
-        $winnerCopy|Add-Member -MemberType NoteProperty -Name PosX -Value ($coords[$count]).split(":")[0]
-        $winnerCopy|Add-Member -MemberType NoteProperty -Name PosZ -Value ($coords[$count]).split(":")[1]
+        Write-Host ($coords[$count] + "ha!")
+        $winnerCopy|Add-Member -MemberType NoteProperty -Name PosX -Value (($coords[$count]).split(":"))[0]
+        $winnerCopy|Add-Member -MemberType NoteProperty -Name PosZ -Value (($coords[$count]).split(":"))[1]
         $to_return += $winnerCopy
         $count++;
     }
