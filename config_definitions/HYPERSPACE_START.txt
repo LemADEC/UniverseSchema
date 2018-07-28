@@ -30,7 +30,7 @@
 		  name and description support colors with § or & as the escape code. '\n' is also supported.
 		  nbt defines a JSON string for custom tags. It's used by WarpDrive extensions.
 		  -->
-		<size x="60000000" z="60000000" />
+		<size x="59999999" z="59999999" />
 		<name>Hyperspace</name>
 		<description>Your ship warp bubble is your\nonly protection.</description>
 		
