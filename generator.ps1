@@ -33,7 +33,7 @@ Function Generate-Cluster() {
             $px = $gx + $sx
             $pz = $gz + $sz
             $name = Get-Random -Minimum 1000 -Maximum 100000
-            Render-SystemStart -name $name -x $px -z $pz -size 100000
+            Render-SystemStart -name $name -x $px -z $pz -size 200000
             #write-host ("System Position: " + $system_position)
             $num_stars = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "star_positions")).Count)-1)
             Write-Host ("Stars: " + $num_stars)
