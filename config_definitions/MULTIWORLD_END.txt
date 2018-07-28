@@ -1,0 +1,12 @@
+
+general {
+    I:options.dimensions={NUM_DIMENSIONS}
+    I:options.providerId=21
+}
+
+
+world {
+    S:defaultBiomeCommands=allow:*;
+    I:worldTypeMW=7
+}
+

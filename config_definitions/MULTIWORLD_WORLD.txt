@@ -1,0 +1,7 @@
+dimension{DIMENSIONIDATZERO} {
+    S:biomeCommands=allow:{CSV_BIOMES};
+    I:dimension_ID={DIMENSIONID}
+    B:isFullOverworld=false
+    S:name={NAME}
+    S:worldType=MWmultiBiome
+}
