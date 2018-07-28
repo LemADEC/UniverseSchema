@@ -76,6 +76,15 @@ Function Generate-Cluster() {
 }
 
 
+
+function getRandomLetter() {
+   return Get-Random -Count 1 -InputObject (65..90)|%{[char]$_}
+}
+
+function getRandomNumber() {
+    return Get-Random -Minimum 0 -Maximum 9;
+}
+
 Function Render-MultiWorldStart() {
     $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\MULTIWORLD_START.txt")
     Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\MultiWorld.cfg")
@@ -83,8 +92,14 @@ Function Render-MultiWorldStart() {
 
 Function Get-BiomesForPlanet($planet) {
     $biomes = import-csv -path ($CONFIG_DIR + "\biome_definitions\" + $planet.biomeCategory  + ".csv")
+    $numBiomes = Get-Random -Minimum $planet.minBiomes -Maximum $planet.maxBiomes
+    $biomes_for_planet = @()
+    while ($biomes_for_planet.Count -lt $numBiomes) {
+        $randBiome = Get-Random -Minimum 0 -Maximum ($biomes.Count-1);
+        $biomes_for_planet += $biomes[$randBiome]
+    }
     #TODO: Make biomes random.
-    return $biomes.Id -join ","  
+    return $biomes_for_planet.Id -join ","  
 }
 
 Function Render-MultiWorldPlanet($planet, $dimensionId) {
