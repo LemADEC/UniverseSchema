@@ -83,6 +83,7 @@ Function Render-MultiWorldStart() {
 
 Function Get-BiomesForPlanet($planet) {
     $biomes = import-csv -path ($CONFIG_DIR + "\biome_definitions\" + $planet.biomeCategory  + ".csv")
+    #TODO: Make biomes random.
     return $biomes.Id -join ","  
 }
 
