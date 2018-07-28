@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <worldGeneration version="2"
 				 xmlns="http://warpdrive.lemadec.org"
 				 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -27,10 +27,10 @@
 		  size defines the world border size, measured in blocks. This is also the size of the orbit area in space, so don't go too big.
 		  name defines an optional display name for the player HUD. It defaults to the celestialObject's id. 
 		  description defines an optional text displayed on the player HUD.
-		  name and description support colors with � or & as the escape code. '\n' is also supported.
+		  name and description support colors with   or & as the escape code. '\n' is also supported.
 		  nbt defines a JSON string for custom tags. It's used by WarpDrive extensions.
 		  -->
-		<size x="30000000" z="30000000" />
+		<size x="60000000" z="60000000" />
 		<name>Hyperspace</name>
 		<description>Your ship warp bubble is your\nonly protection.</description>
 		
