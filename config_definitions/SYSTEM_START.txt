@@ -1,0 +1,33 @@
+		<celestialObject id="{ID}">
+			<!--
+			  parent defines the relation with a bigger enveloping celestial object.
+			  parent.id (optional): when using multiple files, you can attach to a parent by its id.
+			  parent.center.x, parent.center.z: this is the center coordinates in the parent dimension, measured in blocks.
+			  -->
+			<parent>
+				<center x="{POSX}" z="{POSZ}" />
+			</parent>
+			<size x="{SIZEX}" z="{SIZEZ}" />
+			<name>{NAME}</name>
+			<description>{DESCRIPTION}</description>
+			<dimension id="{DIMENSIONID}" isBreathable="false" gravity="legacySpace">
+				<center x="0" z="0" />
+				<provider type="WarpDriveSpace" />
+				<!--
+					generate defines the chance of different structures to generate
+					generate.group, generate.name: identify the structure from the related XML files (name is optional)
+				  -->
+				<generate group="moon" ratio="0.00125" />
+				<generate group="asteroid" ratio="0.0067" />
+				<generate group="asteroids_field" ratio="0.0016" />
+			</dimension>
+			
+			<skybox>
+				<backgroundColor red="0.0" green="0.0" blue="0.0" />
+				<starBrightnessBase>0.9</starBrightnessBase>
+				<starBrightnessVanilla>0.0</starBrightnessVanilla>
+				<celestialObjectOpacity>1.0</celestialObjectOpacity>
+				<fogColor red="0.0" green="0.0" blue="0.0" />
+				<fogFactor red="0.0" green="0.0" blue="0.0" />
+			</skybox>
+			

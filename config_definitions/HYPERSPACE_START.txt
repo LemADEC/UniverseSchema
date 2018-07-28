@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<worldGeneration version="2"
+				 xmlns="http://warpdrive.lemadec.org"
+				 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				 xsi:schemaLocation="http://warpdrive.lemadec.org WarpDrive.xsd">
+	
+	<!--
+	  An astronomical object or celestial object is a naturally occurring physical entity, association, or structure in the observable universe.
+	  They can be a planet, a more abstract construct like solar system (space dimension) or the all mighty hyperspace.
+	  Hyperspace is defined by its WarpDriveHyperspace dimension provider.
+	  Space is a dimension with Hyperspace as its parent.
+	  
+	  This default configuration is fairly simple.
+	  In practice, you can have several hyperspaces containing multiple spaces containing numerous planets, etc..
+	  
+	  When no dimension is defined, a celestial object is considered 'virtual'. An hyperspace can be virtual. A sun is (in most cases) virtual.
+	  In theory, multiple planets can exists in the same Minecraft world (for example: The Twilight Forest exist on multiple planets in different star systems).
+	  
+	  celestialObject.id should be unique for each Celestial object.
+	  When provided by WarpDrive, this is the world folder name instead of DIMxxx.
+	  -->
+	
+	
+	<!-- Top level is hyperspace, typically a galaxy. -->
+	<celestialObject id="Hyperspace">
+		<!--
+		  size defines the world border size, measured in blocks. This is also the size of the orbit area in space, so don't go too big.
+		  name defines an optional display name for the player HUD. It defaults to the celestialObject's id. 
+		  description defines an optional text displayed on the player HUD.
+		  name and description support colors with § or & as the escape code. '\n' is also supported.
+		  nbt defines a JSON string for custom tags. It's used by WarpDrive extensions.
+		  -->
+		<size x="30000000" z="30000000" />
+		<name>Hyperspace</name>
+		<description>Your ship warp bubble is your\nonly protection.</description>
+		
+		<!--
+		  dimension defines an actual game world. If it's missing, that celestialObject remains visible but you can't "land" on it.  
+		  dimension.id: this is the id of the dimension. 0 is the Overworld, -1 is the Nether, 1 is the End.
+		  dimension.isBreathable: this is a boolean flag defining if ambient atmosphere is breathable.
+		  dimension.isHyperspace: this is a boolean flag defining if this an hyperspace dimension. 
+		  dimension.gravity: this is the gravity simulation type. Valid keywords are 'none' (0.0), 'legacySpace', 'legacyHyperspace', 'normal' (1.0) or any value between 0 and 1.
+		  dimension.center.x, dimension.center.z: those are the center coordinate of that dimension world border, measured in blocks. For convenience, it's usually 0, 0.
+		  -->
+		<dimension id="-10001" isBreathable="false" isHyperspace="true" gravity="legacyHyperspace">
+			<center x="0" z="0" />
+			<!--
+			  provider defines how the world biomes are generated. If it's missing, the mod tries to self-assign space and hyperspace dimensions.
+			  provider.type: this is the provider type. Valid keywords are "auto", "WarpDriveSpace", "WarpDriveHyperspace", "other".
+			  Currently only Space and Hyperspace can be provided: use other mods to generate planet world.
+			  -->
+			<provider type="WarpDriveHyperspace" />
+		</dimension>
+		
+		<!--
+		  skybox defines the sky rendering while inside a WarpDrive provided dimensions.
+		  Those can be adjusted to your lore: in hyperspace, Babylon 5 is redish, Stargate is bluish, etc.
+		  skybox.backgroundColor is self explanatory. Vanilla enforces plain black at max render distance.
+		  skybox.starBrightnessBase is the minimum brightness of stars in the sky.
+		  skybox.starBrightnessVanilla is how much of the vanilla star brightness is used. Space and hyperspace have no Sun, hence it's a fixed value.
+		  skybox.celestialObjectOpacity is used for that eery feeling. 0 will completely hide celestial objects.
+		  skybox.fogColor is the main color. Higher values increases the halo effect.
+		  skybox.fogFactor is the fog opacity depending on local Sun position. Space and hyperspace have no Sun, hence it's a fixed value.
+		  -->
+		<skybox>
+			<backgroundColor red="1.0" green="0.0" blue="0.0" />
+			<starBrightnessBase>0.2</starBrightnessBase>
+			<starBrightnessVanilla>0.0</starBrightnessVanilla>
+			<celestialObjectOpacity>0.3</celestialObjectOpacity>
+			<fogColor red="0.15" green="0.0" blue="0.0" />
+			<fogFactor red="0.0" green="0.0" blue="0.0" />
+		</skybox>

@@ -1,6 +1,8 @@
 ﻿$CONFIG_DIR = "C:\Users\draks\OneDrive\Documents\GitHub\UniverseSchema"
+$global:CONST_DIMENSIONID_CURRENT = -10000;
 
 Function Generate-Cluster() {    
+    Render-HyperspaceStart
     $num_galaxies = Get-Random -Minimum 1 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
     Write-Host ("Galaxies: " + $num_galaxies)
     $galaxy_positions_used = @()
@@ -11,7 +13,7 @@ Function Generate-Cluster() {
             $galaxy_position = ((Get-content -Path ($CONFIG_DIR + "\galaxy_positions\" + "galaxy" + $galaxy_posnum + ".txt")));
             $galaxy_positions_used += $galaxy_position
         }
-        write-host ("Galaxy Position: " + $galaxy_position)
+        #write-host ("Galaxy Position: " + $galaxy_position)
         $num_systems = Get-Random -Minimum 1 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "system_positions")).Count)-1);
         Write-Host ("Systems: " + $num_systems)
         $system_positions_used = @()
@@ -22,7 +24,15 @@ Function Generate-Cluster() {
                 $system_position = ((Get-content -Path ($CONFIG_DIR + "\system_positions\" + "system" + $system_posnum + ".txt")));
                 $system_positions_used += $system_position
             }
-            write-host ("System Position: " + $system_position)
+            [int]$gx = $galaxy_position.split(":")[0]
+            [int]$gz = $galaxy_position.split(":")[1]
+            [int]$sx = $system_position.split(":")[0]
+            [int]$sz = $system_position.split(":")[1]
+            $px = $gx + $sx
+            $pz = $gz + $sz
+            $name = Get-Random -Minimum 1000 -Maximum 100000
+            Render-SystemStart -name $name -x $px -z $pz -size 100000
+            #write-host ("System Position: " + $system_position)
             $num_stars = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "star_positions")).Count)-1)
             Write-Host ("Stars: " + $num_stars)
             $star_positions_used = $null; $star_positions_used = @();
@@ -34,12 +44,12 @@ Function Generate-Cluster() {
                         $star_position = ((Get-content -Path ($CONFIG_DIR + "\star_positions\" + "star" + $star_posnum + ".txt")));
                         $star_positions_used += $star_position
                     }
-                    write-host ("Star Position: " + $star_position)
+                    #write-host ("Star Position: " + $star_position)
                 }
             }
             $stars = Get-StarsForSystem -num_stars $num_stars -coords $star_positions_used
-            foreach ($line in $stars) {
-                Write-Host $line
+            foreach ($star in $stars) {
+                Render-Star -star $star
             }
             $num_planets = Get-Random -Minimum 0 -Maximum 6
             Write-Host ("Planets: " + $num_planets)
@@ -52,19 +62,102 @@ Function Generate-Cluster() {
                         $planet_position = ((Get-content -Path ($CONFIG_DIR + "\planet_positions\" + "Planet" + $planet_posnum + ".txt")));
                         $planet_positions_used += $planet_position
                     }
-                    write-host ("Planet Position: " + $planet_position)
+                    #write-host ("Planet Position: " + $planet_position)
                 }
                 $planets = Get-PlanetsForSystem -num_planets $num_planets -planet_coords $planet_positions_used -stars $stars
-                Write-Host $planets
+                foreach ($planet in $planets) {
+                    Render-Planet -planet $planet
+                }
             }
+            Render-SystemEnd
         }
     }
+    Render-HyperspaceEnd
 }
+
+Function Render-SystemStart($name, $x, $z, $size) {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\SYSTEM_START.txt")
+    $data = $data.replace("{ID}", $name)
+    $data = $data.replace("{POSX}", $x)
+    $data = $data.replace("{POSZ}", $z)
+    $data = $data.replace("{SIZEX}", $size)
+    $data = $data.replace("{SIZEZ}", $size)
+    $data = $data.replace("{NAME}", $name)
+    $data = $data.replace("{DESCRIPTION}", "")
+    $data = $data.replace("{DIMENSIONID}", $global:CONST_DIMENSIONID_CURRENT++)
+    $data = $data.replace("^\uFEFF","")
+    
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+}
+
+Function Render-SystemEnd($system) {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\SYSTEM_END.txt")
+    $data = $data.replace("^\uFEFF","")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+}
+
+Function Render-HyperspaceStart() {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\HYPERSPACE_START.txt")
+    $data = $data.replace("^\uFEFF","")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+}
+
+Function Render-HyperspaceEnd() {
+    $data = Get-Content -Path ($CONFIG_DIR + "\config_definitions\HYPERSPACE_END.txt")
+    $data = $data.replace("^\uFEFF","")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+}
+
+Function Render-Star($star) {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\STAR.txt")
+    $render_data = [IO.File]::ReadAllText($CONFIG_DIR + "\render_definitions\" + $star.render + ".txt")
+    $render_data = $render_data.replace("`n", "`n				")
+    $data = $data.replace("{ID}", (Get-Random -Minimum 0 -Maximum 100000))
+    $data = $data.replace("{POSX}", $star.posX)
+    $data = $data.replace("{POSZ}", $star.posZ)
+    $data = $data.replace("{SIZEX}", $star.size)
+    $data = $data.replace("{SIZEZ}", $star.size)
+    $data = $data.replace("{RENDERDATA}", ($render_data))
+    $data = $data.replace("^\uFEFF","")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+}
+
+Function Render-Planet($planet) {
+    $data = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\PLANET.txt")
+    $render_data = [IO.File]::ReadAllText($CONFIG_DIR + "\render_definitions\" + $planet.render + ".txt")
+    $render_data = $render_data.replace("`n", "`n				")
+    $data = $data.replace("{ID}", (Get-Random -Minimum 0 -Maximum 100000))
+    $data = $data.replace("{POSX}", $star.posX)
+    $data = $data.replace("{POSZ}", $star.posZ)
+    $data = $data.replace("{SIZEX}", $star.size)
+    $data = $data.replace("{SIZEZ}", $star.size)
+    if ($planet.hasDimension -eq "TRUE") {
+        $dimData = [IO.File]::ReadAllText($CONFIG_DIR + "\config_definitions\PLANET_DIMDATA.txt")
+        $dimData = $dimData.replace("{DIMENSIONID}", $global:CONST_DIMENSIONID_CURRENT)
+        $global:CONST_DIMENSIONID_CURRENT++;
+        $dimData = $dimData.replace("{GRAVITY}", "1.0");
+        $chance = [int]$planet.hasAtmosphereChance
+        $random = Get-Random -Minimum 0 -Maximum 100
+        if ($random -lt $chance) {
+            $dimData = $dimData.replace("{ATMOSPHERE}", "true")
+        } else {
+            $dimData = $dimData.replace("{ATMOSPHERE}", "false")
+        }
+        $data = $data.replace("{DIMENSIONDATA}", $dimData)
+    } else {
+        $data = $data.replace("{DIMENSIONDATA}", "")
+    }
+    $data = $data.replace("{RENDERDATA}", ($render_data))
+    $data = $data.replace("^\uFEFF","")
+    Add-Content -Encoding UTF8 -Value ($data) -Path ($CONFIG_DIR + "\output\warpdrive.xml")
+}
+
 
 Function Get-Distance($sx, $sz, $dx, $dz) {
     $pow1 = [Math]::pow($sx-$dx,2)
     $pow2 = [Math]::pow($sz-$dz,2)
     $distance = [Math]::Sqrt( ($pow1 *2) + $pow2)
+    return [MAth]::Round($distance);
 }
 
 
@@ -72,6 +165,7 @@ Function Get-PlanetsForSystem($num_planets, $planet_coords, $stars) {
     $planets = Get-Templates -type planet
     $winners = @()
     foreach ($coord in $planet_coords) {
+        if ($coord.length -le 1) { continue; }
         $x = $coord.split(":")[0]
         $z = $coord.split(":")[1]
         $zone = Get-ZoneFromStars -stars $stars -x $x -z $z
@@ -89,24 +183,26 @@ Function Get-PlanetsForSystem($num_planets, $planet_coords, $stars) {
         $planet|Add-Member -MemberType NoteProperty -Name PosX -Value ($x)
         $planet|Add-Member -MemberType NoteProperty -Name PosZ -Value ($z)
         $winners += $planet
-    } 
-    return $planet
+    }
+    return $winners
 }
 
 Function Get-ZoneFromStars($stars, $x,$z) {
+        if ($stars.Count -eq 0) { return "UNINHABITABLE_TOOFAR"; }
+        $zones = @()
         foreach ($star in $stars) {
             $zones += Get-ZoneForStar -star $star -x $x -z $z
         }
-        if ($zone -contains "UNINHABITABLE_TOOCLOSE") {
+        if ($zones -contains "UNINHABITABLE_TOOCLOSE") {
             return "UNINHABITABLE_TOOCLOSE";
         } else {
-            if ($zone -contains "HABITABLE_HOT") {
+            if ($zones -contains "HABITABLE_HOT") {
                 return "HABITABLE_HOT";
             } else {
-                if ($zone -contains "HABITABLE_IDEAL") {
+                if ($zones -contains "HABITABLE_IDEAL") {
                      return "HABITABLE_IDEAL";
                 } else {
-                    if ($zone -contains "HABITABLE_COLD") {
+                    if ($zones -contains "HABITABLE_COLD") {
                         return "HABITABLE_COLD";
                     } else {
                         return "UNINHABITABLE_TOOFAR";
@@ -118,10 +214,10 @@ Function Get-ZoneFromStars($stars, $x,$z) {
 
 Function Get-ZoneForStar($star, $x, $z) {
     $distanceFrom = Get-Distance -sx $star.posX -sz $star.posZ -dx $x -dz $z
-    if ($distance -le $star.habitableTooHotMin) { return "UNINHABITABLE_TOOCLOSE"; }
-    if ($distance -le $star.habitableIdealMin) { return "HABITABLE_HOT"; }
-    if ($distance -le $star.habitableColdMin) { return "HABITABLE_IDEAL"; }
-    if ($distance -le $star.uninhabitableTooColdMin) { return "HABITABLE_COLD"; }
+    if ($distanceFrom -lt $star.habitableTooHotMin) { return "UNINHABITABLE_TOOCLOSE"; }
+    if ($distanceFrom -lt $star.habitableIdealMin) { return "HABITABLE_HOT"; }
+    if ($distanceFrom -lt $star.habitableColdMin) { return "HABITABLE_IDEAL"; }
+    if ($distanceFrom -lt $star.uninhabitableTooColdMin) { return "HABITABLE_COLD"; }
     return "UNINHABITABLE_TOOFAR";
 }
 
@@ -130,7 +226,6 @@ Function Get-StarsForSystem($num_stars, $coords) {
 }
 
 Function Get-ObjectMatches($num_objects, $coords, $type) {
-    Write-Host ("" + $num_objects + "," + $coords + "," + $type)
     if ($num_objects -eq 0) { return; }
     $templates = Get-Templates -type $type
     $to_consider = @()

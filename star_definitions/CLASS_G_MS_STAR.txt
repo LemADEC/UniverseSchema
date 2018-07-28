@@ -1,8 +1,0 @@
-habitableTooHotMin: 10000
-habitableIdealMin: 15000
-habitableColdMin: 25000
-uninhabitableTooColdMin: 40000
-maxStarsInSystem: 3
-size: 3500
-render: CLASS_G_STAR
-weighting: 5

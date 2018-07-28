@@ -1,0 +1,8 @@
+			<celestialObject id="{ID}">
+				<parent>
+					<center x="{POSX}" z="{POSZ}" />
+				</parent>
+				<size x="{SIZEX}" z="{SIZEZ}" />
+				{DIMENSIONDATA}
+				{RENDERDATA}
+			</celestialObject>

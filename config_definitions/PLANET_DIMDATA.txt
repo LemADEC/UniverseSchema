@@ -1,0 +1,3 @@
+				<dimension id="{DIMENSIONID}" isBreathable="{ATMOSPHERE}" gravity="{GRAVITY}">
+					<center x="0" z="0" />
+				</dimension>

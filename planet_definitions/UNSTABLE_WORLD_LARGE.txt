@@ -1,8 +1,9 @@
-size: 1000
-hasAtmosphereChance: 0
+size: 2000
+hasAtmosphereChance: 10
+gravity: HIGH
 hasDimension: TRUE
 biomeCategory: UNSTABLE
-render: TEMPERATE_WORLD
+render: UNSTABLE
 minBiomes: 1
 maxBiomes: 5
 weighting: 5

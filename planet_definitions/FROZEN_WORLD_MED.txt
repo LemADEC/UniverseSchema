@@ -1,0 +1,11 @@
+size: 1500
+hasAtmosphereChance: 75
+gravity: NORMAL
+hasDimension: TRUE
+biomeCategory: FROZEN
+render: FROZEN_WORLD
+minBiomes: 1
+maxBiomes: 5
+weighting: 5
+planetZone: HABITABLE_COLD
+

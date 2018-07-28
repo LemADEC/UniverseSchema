@@ -1,0 +1,11 @@
+size: 2000
+hasAtmosphereChance: 90
+gravity: HIGH
+hasDimension: TRUE
+biomeCategory: TROPICAL
+render: TROPICAL_WORLD
+minBiomes: 1
+maxBiomes: 5
+weighting: 5
+planetZone: HABITABLE_IDEAL
+

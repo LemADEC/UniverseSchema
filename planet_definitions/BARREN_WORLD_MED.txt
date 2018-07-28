@@ -1,8 +1,9 @@
-size: 1000
+size: 1500
 hasAtmosphereChance: 75
+gravity: NORMAL
 hasDimension: TRUE
-biomeCategory: DESOLATE
-render: TEMPERATE_WORLD
+biomeCategory: BARREN
+render: BARREN_WORLD
 minBiomes: 1
 maxBiomes: 5
 weighting: 5

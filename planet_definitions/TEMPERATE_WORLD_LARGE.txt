@@ -1,5 +1,6 @@
-size: 1000
-hasAtmosphereChance: 0
+size: 2000
+hasAtmosphereChance: 90
+gravity: HIGH
 hasDimension: TRUE
 biomeCategory: TEMPERATE
 render: TEMPERATE_WORLD

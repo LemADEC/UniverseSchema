@@ -1,0 +1,11 @@
+size: 1000
+hasAtmosphereChance: 90
+gravity: LOW
+hasDimension: TRUE
+biomeCategory: TEMPERATE
+render: TEMPERATE_WORLD
+minBiomes: 1
+maxBiomes: 5
+weighting: 5
+planetZone: HABITABLE_IDEAL
+
