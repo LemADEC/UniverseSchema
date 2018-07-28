@@ -15,7 +15,7 @@ Function Generate-Cluster() {
             $galaxy_positions_used += $galaxy_position
         }
         #write-host ("Galaxy Position: " + $galaxy_position)
-        $num_systems = Get-Random -Minimum 1 -Maximum 5
+        $num_systems = Get-Random -Minimum 1 -Maximum 10
         #(((Get-ChildItem -Path ($CONFIG_DIR + "\" + "system_positions")).Count)-1);
         Write-Host ("Systems: " + $num_systems)
         $system_positions_used = @()
@@ -257,6 +257,7 @@ Function Get-ObjectMatches($num_objects, $coords, $type) {
         $winnerCopy|Add-Member -MemberType NoteProperty -Name PosX -Value ($coords[$count]).split(":")[0]
         $winnerCopy|Add-Member -MemberType NoteProperty -Name PosZ -Value ($coords[$count]).split(":")[1]
         $to_return += $winnerCopy
+        $count++;
     }
     return $to_return
 }
