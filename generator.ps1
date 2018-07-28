@@ -3,7 +3,8 @@ $global:CONST_DIMENSIONID_CURRENT = -10000;
 
 Function Generate-Cluster() {    
     Render-HyperspaceStart
-    $num_galaxies = Get-Random -Minimum 1 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
+    $num_galaxies = Get-Random -Minimum 1 -Maximum 3
+    #(((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
     Write-Host ("Galaxies: " + $num_galaxies)
     $galaxy_positions_used = @()
     foreach ($galaxy in 1..$num_galaxies) {
@@ -14,7 +15,8 @@ Function Generate-Cluster() {
             $galaxy_positions_used += $galaxy_position
         }
         #write-host ("Galaxy Position: " + $galaxy_position)
-        $num_systems = Get-Random -Minimum 1 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "system_positions")).Count)-1);
+        $num_systems = Get-Random -Minimum 1 -Maximum 5
+        #(((Get-ChildItem -Path ($CONFIG_DIR + "\" + "system_positions")).Count)-1);
         Write-Host ("Systems: " + $num_systems)
         $system_positions_used = @()
         foreach ($system in 0..$num_systems) {
@@ -59,7 +61,7 @@ Function Generate-Cluster() {
                     $planet_position = $null;
                     while ($planet_positions_used -contains $planet_position -or $planet_position -eq $null) {
                         $planet_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "planet_positions")).Count)-1);
-                        $planet_position = ((Get-content -Path ($CONFIG_DIR + "\planet_positions\" + "Planet" + $planet_posnum + ".txt")));
+                        $planet_position = ((Get-content -Path ($CONFIG_DIR + "\planet_positions\" + "planet" + $planet_posnum + ".txt")));
                         $planet_positions_used += $planet_position
                     }
                     #write-host ("Planet Position: " + $planet_position)
