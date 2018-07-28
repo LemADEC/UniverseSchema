@@ -9,7 +9,7 @@ Function Generate-Cluster() {
     $galaxy_positions_used = @()
     foreach ($galaxy in 1..$num_galaxies) {
         $galaxy_position = $null;
-        while ($galaxy_positions_used -contains $galaxy_position -or $galaxy_position -eq $null) {
+        while ($galaxy_positions_used -contains $galaxy_position -or $galaxy_position -eq $null -or $galaxy_position.length -le 1) {
             $galaxy_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
             $galaxy_position = ((Get-content -Path ($CONFIG_DIR + "\galaxy_positions\" + "galaxy" + $galaxy_posnum + ".txt")));
             $galaxy_positions_used += $galaxy_position
@@ -21,7 +21,7 @@ Function Generate-Cluster() {
         $system_positions_used = @()
         foreach ($system in 0..$num_systems) {
             $system_position = $null;
-            while ($system_positions_used -contains $system_position -or $system_position -eq $null) {
+            while ($system_positions_used -contains $system_position -or $system_position -eq $null -or $system_position.length -le 1) {
                 $system_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "system_positions")).Count)-1);
                 $system_position = ((Get-content -Path ($CONFIG_DIR + "\system_positions\" + "system" + $system_posnum + ".txt")));
                 $system_positions_used += $system_position
@@ -41,7 +41,7 @@ Function Generate-Cluster() {
             if ($num_stars -ne 0) {
                 foreach ($star in 1..$num_stars) {
                     $star_position = $null;
-                    while ($star_positions_used -contains $star_position -or $star_position -eq $null) {
+                    while ($star_positions_used -contains $star_position -or $star_position -eq $null -or $star_position.length -le 1) {
                         $star_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "star_positions")).Count)-1);
                         $star_position = ((Get-content -Path ($CONFIG_DIR + "\star_positions\" + "star" + $star_posnum + ".txt")));
                         $star_positions_used += $star_position
@@ -59,7 +59,7 @@ Function Generate-Cluster() {
             if ($num_planets -ne 0) {
                 foreach ($planet in 1..$num_planets) {
                     $planet_position = $null;
-                    while ($planet_positions_used -contains $planet_position -or $planet_position -eq $null) {
+                    while ($planet_positions_used -contains $planet_position -or $planet_position -eq $null -or $planet_position.length -le 1) {
                         $planet_posnum = Get-Random -Minimum 0 -Maximum (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "planet_positions")).Count)-1);
                         $planet_position = ((Get-content -Path ($CONFIG_DIR + "\planet_positions\" + "planet" + $planet_posnum + ".txt")));
                         $planet_positions_used += $planet_position
