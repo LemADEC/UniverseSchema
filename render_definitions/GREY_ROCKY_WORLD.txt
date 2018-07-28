@@ -1,0 +1,2 @@
+<render red="0.70" green="0.70" blue="0.70" alpha="0.40" texture="warpdrive:textures/celestial/surface_rock1.png" periodU="-20" periodV="104" additive="true" />
+<render red="0.90" green="1.00" blue="1.00" alpha="0.08" texture="" />
