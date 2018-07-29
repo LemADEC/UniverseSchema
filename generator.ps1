@@ -96,7 +96,9 @@ Function Get-BiomesForPlanet($planet) {
     $biomes_for_planet = @()
     while ($biomes_for_planet.Count -lt $numBiomes) {
         $randBiome = Get-Random -Minimum 0 -Maximum ($biomes.Count-1);
-        $biomes_for_planet += $biomes[$randBiome]
+        if ($biomes_for_planet -notcontains $biomes[$randBiome]) {
+            $biomes_for_planet += $biomes[$randBiome]
+        }
     }
     #TODO: Make biomes random.
     return $biomes_for_planet.Id -join ","  
