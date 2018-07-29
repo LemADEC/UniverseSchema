@@ -6,7 +6,7 @@ Function Generate-Cluster() {
     Render-HyperspaceStart
     Render-MultiWorldStart
     $num_galaxies = Get-Random -Minimum 1 -Maximum 3
-    #(((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
+    (((Get-ChildItem -Path ($CONFIG_DIR + "\" + "galaxy_positions")).Count)-1);
     Write-Host ("Galaxies: " + $num_galaxies)
     $galaxy_positions_used = @()
     foreach ($galaxy in 1..$num_galaxies) {
@@ -17,7 +17,7 @@ Function Generate-Cluster() {
             if ($system_positions_used -notcontains $galaxy_position) { $system_positions_used += $galaxy_position } else { $galaxy_position = $null; }
         }
         #write-host ("Galaxy Position: " + $galaxy_position)
-        $num_systems = Get-Random -Minimum 1 -Maximum 10
+        $num_systems = Get-Random -Minimum 1 -Maximum 10;
         #(((Get-ChildItem -Path ($CONFIG_DIR + "\" + "system_positions")).Count)-1);
         Write-Host ("Systems: " + $num_systems)
         $system_positions_used = @()
@@ -52,7 +52,7 @@ Function Generate-Cluster() {
             foreach ($star in $stars) {
                 Render-Star -star $star
             }
-            $num_planets = Get-Random -Minimum 0 -Maximum 6
+            $num_planets = Get-Random -Minimum 0 -Maximum 7
             Write-Host ("Planets: " + $num_planets)
             $planet_positions_used = @();
             if ($num_planets -ne 0) {
